@@ -1,0 +1,38 @@
+def loi():
+    finalMass = float(input("Enter final mass: "))
+    initialMass = float(input("Enter oven dry mass: "))
+    theoreticalPercentResinMass = float(input("Enter theoretical LOI: "))
+    percentResinMass = (initialMass - finalMass) / initialMass
+    percentError = (percentResinMass - theoreticalPercentResinMass) / theoreticalPercentResinMass
+    acceptableError = 0.05
+    print("LOI: "), print(percentResinMass)
+    print("Percent Error: "), print(percentError)
+    if percentError < acceptableError:
+        print("This handsheet is valid")
+    if percentError > acceptableError:
+        print("***This handsheet is invalid***")
+    return (percentResinMass)
+def loiTwo():
+    finalMassTwo = float(input("Enter final mass: "))
+    initialMassTwo = float(input("Enter oven dry mass: "))
+    theoreticalPercentResinMassTwo = float(input("Enter theoretical LOI: "))
+    percentResinMassTwo = (initialMassTwo - finalMassTwo) / initialMassTwo
+    return(percentResinMassTwo)
+    percentErrorTwo = (percentResinMassTwo - theoreticalPercentResinMassTwo) / theoreticalPercentResinMassTwo
+    acceptableError = 0.05
+    print("LOI: "), print(percentResinMassTwo)
+    print("Percent Error: "), print(percentErrorTwo)
+    if percentErrorTwo < acceptableError:
+        print("This handsheet is valid")
+    if percentErrorTwo > acceptableError:
+          print("***This handsheet is invalid***")
+loi()   
+anotherOne = input("Analyze another data set? (y/n)")
+if anotherOne == "y":
+    loiTwo()
+anotherOne = input("Analyze another data set? (y/n)")
+if anotherOne == "n":
+    averageLoi = (percentResinMass + percentResinMassTwo) / 2
+    print(averageLoi)
+else:
+    loi()
