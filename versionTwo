@@ -1,0 +1,27 @@
+sumLOI = 0
+sumPercentError = 0
+n = 0
+targetLOI = float(input("Enter target LOI: "))
+anotherOne = "y"
+while anotherOne == "y":
+    cMass = float(input("Enter crucible mass: "))
+    cmMass = float(input("Enter crucible mass with mat: "))
+    fMass = float(input("Enter mass after ignition: "))
+    initialMatMass = cmMass - cMass
+    finalMatMass = fMass - cMass
+    loi = ((initialMatMass - finalMatMass) / initialMatMass)
+    percentError = abs(((loi - targetLOI) / targetLOI) * 100)
+    print("LOI is ", loi)
+    print("Percent Error is ", percentError, "%")
+    sumLOI += loi
+    sumPercentError += percentError
+    n += 1
+    if percentError <= 5:
+        print("***This handsheet is valid***")
+    else:
+        print("***This handsheet is invalid***")
+    print("")
+    anotherOne = input("Analyze another data set? (y/n)")
+print("Average LOI is ", sumLOI / n)
+print("Average percent error is ", sumPercentError / n, "%")
+done = input("COMPLETE")
